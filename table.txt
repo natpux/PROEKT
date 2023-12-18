@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS zapros
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+      Normativ TEXT,Kod KKM TEXT, Naimenovanie materiala(KKM) TEXT, Naimenovanie materiala(smeta) TEXT,Edinica izmerenia ТEXT,PTM(ПТМ) ТEХТ,Haracteristica materiala ТEХТ);
+
+INSERT INTO zapros(id,Normativ,Kod KKM, Naimenovanie materiala(KKM), Naimenovanie materiala(smeta),Edinica izmerenia,PTM(ПТМ),Haracteristica materiala)) VALUES (1, 'Ц8-904-1', '1/10-20-10','СОEДИНИТЕЛЬ ПРЯМОЙ ИЗ ПВХ 25ММ','СОEДИНИТЕЛЬ 25 ММ','ШТ','Ж6-90-90','ЦВЕТ СЕРЫЙ,ПВХ');
