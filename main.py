@@ -24,17 +24,16 @@ class Main(QtWidgets.QMainWindow):
 
 
 
+
     def initUi(self):
         #создать поле
 
         self.setMinimumWidth(930)
-        self.setMinimumHeight(900)
+        self.setMinimumHeight(600)
         # self.setFixedSize(1000,900)
         self.setWindowTitle('ЗАПРОС РАЗРАБОТЧИКА СМЕТНОЙ ДОКУМЕНТАЦИИ ОПЕРАТОРУ ГОССТРОЙПОРТАЛА')
 
         # кнопка с пустым полем для того чтобы писать
-        self.ll=QLineEdit(self)
-        self.ll.move(20,20)
         self.sth1 =QPushButton('ДОБАВИТЬ МАТЕРИАЛ В БАЗУ ДАННЫХ', self)
         self.sth1.clicked.connect(self.func1)
         self.sth1.setGeometry(100,360, 500,80 )
@@ -47,20 +46,22 @@ class Main(QtWidgets.QMainWindow):
         self.sth3.clicked.connect(self.func4)
         self.sth3.setGeometry(100, 230, 500, 80)
         self.sth3.setStyleSheet("background-image: url(7.jpg);")
-        self.sth5 = QPushButton('Цена за единицу измерения', self)
-        self.sth5.setGeometry(50, 500, 200, 75)
-        self.sth5.setStyleSheet('background-color:pink')
-        self.sth6 = QPushButton('Вид работ (ПТМ)', self)
-        self.sth6.setGeometry(50, 600, 200, 75)
-        self.sth6.setStyleSheet('background-color:white')
-        self.sth7 = QPushButton('Основные характеристики матерала по проекту', self)
-        self.sth7.setGeometry(50, 700, 500, 75)
-        self.sth7.setStyleSheet("background-сolor:pink;")
-        self.rb1 = QRadioButton('без НДС', self)
-        self.rb1.move(500,50)
-        self.rb2 = QRadioButton('с НДС', self)
-        self.rb2.move(600, 50)
         self.setStyleSheet("background-image: url(1000.jpg);")
+
+        # self.sth5 = QPushButton('Цена за единицу измерения', self)
+        # self.sth5.setGeometry(50, 500, 200, 75)
+        # self.sth5.setStyleSheet('background-color:pink')
+        # self.sth6 = QPushButton('Вид работ (ПТМ)', self)
+        # self.sth6.setGeometry(50, 600, 200, 75)
+        # self.sth6.setStyleSheet('background-color:white')
+        # self.sth7 = QPushButton('Основные характеристики матерала по проекту', self)
+        # self.sth7.setGeometry(50, 700, 500, 75)
+        # self.sth7.setStyleSheet("background-сolor:pink;")
+        # self.rb1 = QRadioButton('без НДС', self)
+        # self.rb1.move(500,50)
+        # self.rb2 = QRadioButton('с НДС', self)
+        # self.rb2.move(600, 50)
+
 
         # self.gl=QLabel('форма создана по инструкции №39',self)
         # self.style='border: 1px solid; background-color:pink'
@@ -178,38 +179,66 @@ class Window2(QWidget):
 
     def initUi1(self):
         self.setWindowTitle('ВВЕДИТЕ НОВЫЕ ДАННЫЕ В БАЗУ')
-        self.setMinimumWidth(900)
-        self.setMinimumHeight(800)
-        self.gl100 = QLabel('        РАСЦЕНКУ',self)
+        self.setMinimumWidth(1700)
+        self.setMinimumHeight(960)
+        self.gl100 = QLabel('НОРМАТИВ РАСХОДА РЕСУРСОВ',self)
         self.gl100.setStyleSheet('border:3px solid pink')
         self.gl100.setGeometry(30,20, 200, 30)
         self.pole1=QLineEdit(self)
         self.pole1.setGeometry(30, 60,200, 70)
-        self.gl101 = QLabel('         КОД ККМ', self)
+        self.gl101 = QLabel('            КОД ККМ', self)
         self.gl101.setStyleSheet('border:3px solid pink')
         self.gl101.setGeometry(270, 20, 200, 30)
         self.pole2 = QLineEdit(self)
         self.pole2.setGeometry(270, 60, 200, 70)
         self.pole3 = QLineEdit(self)
-        self.gl102 = QLabel('  НАИМЕНОВАНИЕ МАТЕРИЛА', self)
+        self.pole3.setGeometry(510, 60, 200, 70)
+        self.gl102 = QLabel('НАИМЕНОВАНИЕ МАТЕРИЛА КОД ККМ', self)
         self.gl102.setStyleSheet('border:3px solid pink')
         self.gl102.setGeometry(510, 20, 200, 30)
-        self.pole3.setGeometry(510, 60, 200, 70)
+        #
         self.pole4 = QLineEdit(self)
-        self.pole4.setGeometry(750, 60, 200, 70)
-        self.pole5 = QLabel(self)
+        self.pole4.setGeometry(180, 210, 200, 70)
         self.gl103 = QLabel('  ЦЕНУ ЗА ЕД.ИЗМЕРЕНИЯ', self)
         self.gl103.setStyleSheet('border:3px solid pink')
-        self.gl103.setGeometry(750, 20, 200, 30)
+        self.gl103.setGeometry(180,170, 200, 30)
+        #
+        self.pole5 = QLabel(self)
         self.pole5.setPixmap(QPixmap("321.jpg"))
-        self.pole5.setGeometry(300, 300, 350, 400)
+        self.pole5.setGeometry(110, 440,400,400)
         self.sth20 = QPushButton('ОК', self)
-        self.sth20.setGeometry(350, 200, 200, 75)
+        self.sth20.setGeometry(180, 325, 200, 75)
         self.sth20.setStyleSheet("background-image: url(7.jpg);")
-
-
-
-
+        self.pole6 = QLabel(self)
+        self.pole6.setPixmap(QPixmap("img_1.png"))
+        self.pole6.setGeometry(520,153, 875, 776)
+        # НОВОЕ
+        self.pole110 = QLineEdit(self)
+        self.pole110.setGeometry(750, 60, 200, 70)
+        self.gl110 = QLabel(' НАИМЕНОВАНИЕ МАТЕРИАЛА '
+                            'ДЛЯ ВКЛЮЧЕНИЯ В СМЕТНУЮ СТОИМОСТЬ', self)
+        self.gl110.setStyleSheet('border:3px solid pink')
+        self.gl110.setGeometry(750, 20, 200, 30)
+        self.pole111 = QLineEdit(self)
+        self.pole111.setGeometry(990, 60, 200, 70)
+        self.gl111 = QLabel('   ЕДИНИЦА ИЗМЕРЕНИЯ', self)
+        self.gl111.setStyleSheet('border:3px solid pink')
+        self.gl111.setGeometry(990, 20, 200, 30)
+        self.pole111 = QLineEdit(self)
+        self.pole111.setGeometry(1230, 60, 200, 70)
+        self.gl111 = QLabel('   ВИД РАБОТЫ (ПТМ)', self)
+        self.gl111.setStyleSheet('border:3px solid pink')
+        self.gl111.setGeometry(1230, 20, 200, 30)
+        self.pole112 = QLineEdit(self)
+        self.pole112.setGeometry(1470, 60, 200, 400)
+        self.gl112 = QLabel('ОСНОВНЫЕ ХАРАКТЕРИСТИКИ', self)
+        self.gl112.setStyleSheet('border:3px solid pink')
+        self.gl112.setGeometry(1470, 20, 200, 30)
+        self.pole113 = QLineEdit(self)
+        self.pole113.setGeometry(1470, 540, 200,390)
+        self.gl113 = QLabel('ПРИМЕЧАНИЕ', self)
+        self.gl113.setStyleSheet('border:3px solid pink')
+        self.gl113.setGeometry(1470, 490, 200, 30)
 
     def insert(self):
         self.Normativ = self.pole1.text()
@@ -218,14 +247,6 @@ class Window2(QWidget):
         self.PRICE = self.pole4.text()
         self.db.insert( self.Normativ, self.Kod_KKM, self.Naimenovanie_materiala, self.PRICE)
         self.db.select()
-
-
-
-
-
-
-
-
 
 
 class Window1(QWidget):
@@ -303,46 +324,141 @@ class Window3(Main):
         self.initUi3()
         self.select()
         self.sth300.clicked.connect(self.delete)
-        self.sth302.clicked.connect(self.open_file)
+        # self.sth302.clicked.connect(self.open_file)
         self.sth303.clicked.connect(self.exportExcel)
         self.edit.returnPressed.connect(self.on_find)
+        self.sth304.clicked.connect(self.update)
+        # self.edit1.returnPressed.connect(self.save)
         # self.sth304.clicked.connect(self.select)
         #self.sth300.clicked.connect(self.close)
 
     def initUi3(self):
         self.setWindowTitle('ПРОСМОРТ БАЗЫ ДАННЫХ')
-        self.setMinimumWidth(1200)
-        self.setMinimumHeight(900)
+        self.setMinimumWidth(1910)
+        self.setMinimumHeight(990)
         self.setStyleSheet("background-image: url(44444.jpg);")
         self.gl201 = QLabel('       УДАЛИТЬ НОМЕР', self)
         self.gl201.setStyleSheet('border:3px solid pink')
-        self.gl201.setGeometry(1015, 20, 175, 70)
+        self.gl201.setGeometry(1700, 20, 175, 70)
         self.pole201 = QLineEdit(self)
-        self.pole201.setGeometry(1050, 112, 100, 70)
+        self.pole201.setGeometry(1745, 112, 100, 70)
         self.pole201.setStyleSheet("background-image: url(44444-4.jpg);")
         self.sth300 = QPushButton('УДАЛИТЬ', self)
-        self.sth300.setGeometry(1010, 200, 180, 100)
+        self.sth300.setGeometry(1700, 220, 180, 70)
         self.sth300.setStyleSheet("background-image: url(7.jpg);")
         self.pig = QTableWidget(self)
-        self.pig.setGeometry(5, 5, 1000, 1000)
-        self.sth302 = QPushButton('ОТКРЫТЬ ФАЙЛ EXCEL', self)
-        self.sth302.setGeometry(1010, 325, 180, 100)
-        self.sth302.setStyleSheet("background-image: url(7.jpg);")
+        self.pig.setGeometry(5, 5, 1670, 700)
+        # self.sth302 = QPushButton('ОТКРЫТЬ ФАЙЛ EXCEL', self)
+        # self.sth302.setGeometry(1010, 325, 180, 100)
+        # self.sth302.setStyleSheet("background-image: url(7.jpg);")
+
         self.sth303 = QPushButton('СОХРАНИТЬ ФАЙЛ В ЕХСЕЛ', self)
-        self.sth303.setGeometry(1010, 450, 180, 100)
+        self.sth303.setGeometry(1700, 530, 180, 70)
         self.sth303.setStyleSheet("background-image: url(7.jpg);")
         self.edit = QLineEdit(self)
-        self.edit.setGeometry(1010, 700, 175, 70)
+        self.edit.setGeometry(1700, 430, 175, 70)
         self.edit.setStyleSheet("background-image: url(44444-4.jpg);")
-        self.gl202 = QLabel('      ПОИСК ПО НАЗВАНИЮ', self)
+        self.gl202 = QLabel('   ПОИСК ПО БАЗЕ', self)
         self.gl202.setStyleSheet('border:3px solid pink')
-        self.gl202.setGeometry(1010,600, 175, 70)
+        self.gl202.setGeometry(1700,330, 175, 70)
+        self.sth304 = QPushButton('ОБНОВИТЬ БАЗУ ДАННЫХ', self)
+        self.sth304.setGeometry(1700, 760, 180, 100)
+        self.sth304.setStyleSheet("background-image: url(7.jpg);")
+
+        # --------------------------------------------НИЗЗ!!!!!
+
+
+
+        self.gl100 = QLabel('№ПП ИЗ БАЗЫ                        (ДЛЯ ОБНОВЛЕНИЯ)', self)
+        self.gl100.setStyleSheet('border:3px solid pink')
+        self.gl100.setGeometry(30, 710, 200, 40)
+        self.gl100.setWordWrap(True)
+        self.pole1 = QLineEdit(self)
+        self.pole1.setGeometry(30, 760, 200, 70)
+        #######
+        self.gl101 = QLabel('НОРМАТИВ РАСХОДА РЕСУРСОВ ', self)
+        self.gl101.setStyleSheet('border:3px solid pink')
+        self.gl101.setGeometry(270, 710, 200, 40)
+        self.gl101.setWordWrap(True)
+        self.pole2 = QLineEdit(self)
+        self.pole2.setGeometry(270, 760, 200, 70)
+        ##########
+        self.gl102 = QLabel('КОД ККМ', self)
+        self.gl102.setStyleSheet('border:3px solid pink')
+        self.gl102.setGeometry(510,710, 200, 40)
+        self.pole3 = QLineEdit(self)
+        self.pole3.setGeometry(510, 760, 200, 70)
+
+        # НОВОЕ
+        self.gl110 = QLabel('НАИМЕНОВАНИЕ МАТЕРИЛА           (ПО КОДУ ККМ) ', self)
+        self.gl110.setWordWrap(True)
+        self.gl110.setStyleSheet('border:3px solid pink')
+        self.gl110.setGeometry(990,710, 200, 40)
+        self.pole110 = QLineEdit(self)
+        self.pole110.setGeometry(990, 760, 200, 70)
+        #########
+        self.gl111 = QLabel('НАИМЕНОВАНИЕ МАТЕРИАЛА '
+                            'ДЛЯ ВКЛЮЧЕНИЯ В СМЕТНУЮ СТОИМОСТЬ', self)
+        ####перенос текста
+        self.gl111.setWordWrap(True)
+        self.gl111.setStyleSheet('border:3px solid pink')
+        self.gl111.setGeometry(1230, 710, 200, 50)
+        self.pole111 = QLineEdit(self)
+        self.pole111.setGeometry(1230, 760, 200, 70)
+        ########
+        self.gl1111 = QLabel('ЕДИНИЦА ИЗМЕРЕНИЯ', self)
+        self.gl1111.setStyleSheet('border:3px solid pink')
+        self.gl1111.setGeometry(1470, 710, 200, 40)
+        self.pole1111 = QLineEdit(self)
+        self.pole1111.setGeometry(1470, 760, 200, 70)
+        ########
+        self.gl112 = QLabel('ВИД РАБОТЫ (ПТМ)', self)
+        self.gl112.setStyleSheet('border:3px solid pink')
+        self.gl112.setGeometry(30,840,200, 40)
+        self.pole112 = QLineEdit(self)
+        self.pole112.setGeometry(30,890, 200, 70)
+        #######
+        self.gl113 = QLabel('            ОСНОВНЫЕ ХАРАКТЕРИСТИКИ       ', self)
+        self.gl113.setWordWrap(True)
+        self.gl113.setStyleSheet('border:3px solid pink')
+        self.gl113.setGeometry(270,840,440, 40)
+        self.pole113 = QLineEdit(self)
+        self.pole113.setGeometry(270,890,440, 70)
+        # self.edit1 = QLineEdit(self)
+        # self.edit1.setGeometry(1010,640, 175, 70)
+        # self.edit1.setStyleSheet("background-image: url(44444-4.jpg);")
+        ######
+        self.gl103 = QLabel(' ПРИМЕЧАНИЕ ', self)
+        self.gl103.setStyleSheet('border:3px solid pink')
+        self.gl103.setGeometry(990, 840,440, 40)
+        self.pole4 = QLineEdit(self)
+        self.pole4.setGeometry(990, 890, 440, 70)
+        #######
+        self.gl103 = QLabel(' ЦЕНУ ЗА ЕД.ИЗМЕРЕНИЯ', self)
+        self.gl103.setStyleSheet('border:3px solid pink')
+        self.gl103.setGeometry(1470, 840, 200,40)
+        self.pole4 = QLineEdit(self)
+        self.pole4.setGeometry(1470, 890, 200, 70)
+        ######
+        self.pole2 = QLabel(self)
+        self.pole2.setPixmap(QPixmap("999.jpg"))
+        self.pole2.setGeometry(720,710,260,270)
+        ######
+        # self.pole2 = QLabel(self)
+        # self.pole2.setPixmap(QPixmap("2222.jpg"))
+        # self.pole2.setGeometry(1680, 710, 230, 270)
+
 
         # self.pole401 = QLineEdit(self)
         # self.pole401.setGeometry(1015, 600, 175, 70)
         # self.sth304 = QPushButton('ВЫБЕРИТЕ НОМЕР ПОЗИЦИИ', self)
         # self.sth304.setGeometry(1010, 700, 180, 100)
         # self.sth304.setStyleSheet("background-image: url(888.jpg);")
+
+    # def save (self):
+    #     __k__ = self.edit1.text().lower()
+    #     print(k)
+
 
 
     def select(self):
@@ -412,16 +528,23 @@ class Window3(Main):
     #         self.pig.setItem(0, 4, QtWidgets.QTableWidgetItem(str('ДАННЫЕ  !!!')))
     #         self.sth300.clicked.connect(self.close)
 
-
+    def update(self):
+        self.id =self.pole1.text()
+        self.Normativ = self.pole2.text()
+        self.Kod_KKM = self.pole3.text()
+        self.Naimenovanie_materiala = self.pole110.text()
+        self.PRICE = self.pole4.text()
+        self.db.update(self.id, self.Normativ, self.Kod_KKM, self.Naimenovanie_materiala, self.PRICE)
+        self.select()
     def delete(self):
         self.id=self.pole201.text()
         self.db.delete(self.id)
         self.select()
 
-    def open_file(self):
-        self.fname, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Выберите файл', '.',
-                                                                  "Файлы Exсel (*.xlsx)")
-        print(f'fname = {self.fname}')
+    # def open_file(self):
+    #     self.fname, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Выберите файл', '.',
+    #                                                               "Файлы Exсel (*.xlsx)")
+    #     print(f'fname = {self.fname}')
 
     def exportExcel(self):
         rows = self.pig.rowCount()
@@ -473,25 +596,6 @@ class Window3(Main):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Window4(Main):
 
     def __init__(self):
@@ -503,6 +607,7 @@ class Window4(Main):
         self.sth304.clicked.connect(self.select2)
         # self.sth304.clicked.connect(self.close)
 
+
     def initUi4(self):
         self.setWindowTitle('ПОЛЕ ДЛЯ ФОРМИРОВАНИЯ ЗАПРОСА')
         self.setMinimumWidth(1215)
@@ -512,7 +617,10 @@ class Window4(Main):
         self.gl201 = QLabel('  ВВЕДИТЕ №П/П ИЗ БАЗЫ', self)
         self.gl201.setStyleSheet('border:3px solid pink')
         self.gl201.setGeometry(1020, 130, 180, 50)
-        # self.pole201 = QLineEdit(self)
+        # self.gl202 = QLabel(__k__,self)
+        # self.gl202.setStyleSheet('border:3px solid pink')
+        # self.gl202.setGeometry(1020, 760, 180, 50)
+        # # self.pole201 = QLineEdit(self)
         # self.pole201.setGeometry(1050, 112, 100, 70)
         # self.sth300 = QPushButton('УДАЛИТЬ', self)
         # self.sth300.setGeometry(1010, 200, 180, 100)
@@ -524,6 +632,9 @@ class Window4(Main):
         # self.sth302.setStyleSheet("background-image: url(888.jpg);")
         self.sth303 = QPushButton('СОХРАНИТЬ ФАЙЛ В ЕХСЕЛ', self)
         self.sth303.setGeometry(1020, 650, 180, 85)
+        self.pole5 = QLabel(self)
+        self.pole5.setPixmap(QPixmap("19.jpg"))
+        self.pole5.setGeometry(1020, 740, 250, 250)
         self.sth303.setStyleSheet("background-image: url(7.jpg);")
         self.pole401 = QLineEdit(self)
         self.pole401.setGeometry(1020, 200, 70, 50)
@@ -565,7 +676,10 @@ class Window4(Main):
         self.pole412.setGeometry(1120, 560, 70, 50)
         self.pole412.setStyleSheet("background-image: url(1000.jpg);")
 
-
+    # def sav(self):
+    #     super.__class__.
+    # #     k=self.edit1.text().lower()
+    #     print(k)
     # def select(self):
     #     self.data = self.db.select()
     #
@@ -651,10 +765,10 @@ class Window4(Main):
         self.db.delete(self.id)
         self.select()
 
-    def open_file(self):
-        self.fname, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Выберите файл', '.',
-                                                                  "Файлы Exсel (*.xlsx)")
-        print(f'fname = {self.fname}')
+    # def open_file(self):
+    #     self.fname, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Выберите файл', '.',
+    #                                                               "Файлы Exсel (*.xlsx)")
+    #     print(f'fname = {self.fname}')
 
     def exportExcel(self):
         rows = self.pig.rowCount()
@@ -681,6 +795,7 @@ class Window4(Main):
 
         df.to_excel(path, index=False)
         msg = QMessageBox.information(self, 'Ok', 'Файл сохранен!')
+
 
 
 
