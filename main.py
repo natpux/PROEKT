@@ -2,16 +2,14 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget,QMainWindow,QLineEdit,QRadioButton,QLabel,QPushButton, QToolTip,QMessageBox, QDesktopWidget,QTableWidget
 from PyQt5.QtGui import QFont,QPixmap
-from PyQt5.QtCore import QCoreApplication
+# from PyQt5.QtCore import QCoreApplication
 from data_client1 import Sqlite
-from PyQt5 import uic, QtWidgets
+# from PyQt5 import uic, QtWidgets
 ###ИМПОРТ ДЛЯ EXCEL
 import pandas as pd
-# import openpyxl
 from PyQt5.QtWidgets import QApplication, QMainWindow, \
     QStackedWidget, QMessageBox, QFileDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 
 
@@ -20,7 +18,6 @@ class Main(QtWidgets.QMainWindow):
         super(Main,self).__init__()
         self.initUi()
         self.db = Sqlite()
-
 
 
 
@@ -48,56 +45,6 @@ class Main(QtWidgets.QMainWindow):
         self.sth3.setStyleSheet("background-image: url(7.jpg);")
         self.setStyleSheet("background-image: url(1000.jpg);")
 
-        # self.sth5 = QPushButton('Цена за единицу измерения', self)
-        # self.sth5.setGeometry(50, 500, 200, 75)
-        # self.sth5.setStyleSheet('background-color:pink')
-        # self.sth6 = QPushButton('Вид работ (ПТМ)', self)
-        # self.sth6.setGeometry(50, 600, 200, 75)
-        # self.sth6.setStyleSheet('background-color:white')
-        # self.sth7 = QPushButton('Основные характеристики матерала по проекту', self)
-        # self.sth7.setGeometry(50, 700, 500, 75)
-        # self.sth7.setStyleSheet("background-сolor:pink;")
-        # self.rb1 = QRadioButton('без НДС', self)
-        # self.rb1.move(500,50)
-        # self.rb2 = QRadioButton('с НДС', self)
-        # self.rb2.move(600, 50)
-
-
-        # self.gl=QLabel('форма создана по инструкции №39',self)
-        # self.style='border: 1px solid; background-color:pink'
-        # self.gl.setGeometry(700,50,230,80)
-        # self.gl.setStyleSheet(self.style)
-        # self.gl1 = QLabel(self)
-        # self.gl1.setPixmap(QPixmap("999.jpg"))
-        # self.gl1.setGeometry(650, 150, 700, 230)
-        # self.gl2 = QLabel(self)
-        # self.gl2.setPixmap(QPixmap("555.png"))
-        # self.gl2.setGeometry(660,280,300,700)
-
-      #  self.ins = QPushButton('ВСТАВИТЬ', self)
-      #  self.ins.clicked.connect(self.insert)
-      #  self.ins.setGeometry(50, 100, 100, 100)
-       # self.ins.setStyleSheet('background-color:red')
-        #self.ins1 = QPushButton('ОБНОВИТЬ', self)
-       # self.ins1.clicked.connect(self.update())
-       # self.ins1.setGeometry(50, 100, 100, 100)
-       # self.ins1.setStyleSheet('background-color:red')
-       # self.ins2 = QPushButton('УДАЛИТЬ', self)
-      #  self.ins2.clicked.connect(self.delete)
-       # self.ins2.setGeometry(50, 100, 100, 100)
-       # self.ins2.setStyleSheet('background-color:red')
-       # self.ins3 = QPushButton('УДАЛИТЬ', self)
-      #  self.ins3.clicked.connect(self.select())
-      #  self.ins3.setGeometry(50, 100, 100, 100)
-     #   self.ins3.setStyleSheet('background-color:red')
-
-
-      # self.pushButton.clicked.connect(self.insert)
-      #self.pushButton_2.clicked.connect(self.update)
-      # self.pushButton_3.clicked.connect(self.delete)
-
-
-
 
 
     def update(self):
@@ -108,63 +55,28 @@ class Main(QtWidgets.QMainWindow):
         self.PRICE = QLineEdit(self)
         self.db.update(self.id, self.Normativ, self.Kod_KKM, self.Naimenovanie_materiala, self.PRICE)
         self.select()
-    # def update(self):
-    #     self.id = self.lineEdit.text()
-    #     self.login = self.lineEdit_2.text()
-    #     self.password = self.lineEdit_3.text()
-    #     self.db.update(self.id, self.login, self.password)
-    #     self.select()
 
-    # def delete1(self):
-    #     self.id = self.pole201.text()
-    #     self.db.delete(self.id)
-    #     self.db.select()
 
     def func1(self):
-        print('привет медведь')
+        print('привет медвед')
         self.w1 = Window1()
         self.w1.button.clicked.connect(self.func2)
         self.w1.show()
 
+
     def func2(self):
-        print('привет заяц')
         self.w2 = Window2()
         self.w2.show()
+
+
     def func3(self):
-        print('ПРИВЕТ КОТЯРА')
         self.w4 = Window3()
         self.w4.show()
 
+
     def func4(self):
-        print('ПРИВЕТ КОТЯРА')
         self.w4 = Window4()
         self.w4.show()
-
-
-
-
-    #def select(self):
-     #   self.data = self.db.select()
-    #    self.tableWidget.setRowCount(len(self.data))
-     #   self.tableWidget.setColumnCount(len(self.data[0]))
-
-        # добавляет данные
-       # for row, row_item in enumerate(self.data):
-            #insert(self, Normativ, Kod_KKM,Naimenovanie_materiala,PRICE,Naimenovanie_smeta,Edinica_izmer,PTM,Haracteristica_mat,Naimenovanie_stroika):
-        #    print(row,row_item)
-        #    for column, value in enumerate(row_item):
-         #       self.tableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(value)))
-
-    # self.Naimenovanie_smeta,self.Edinica_izmer,self.PTM,self.Haracteristica_mat,self.Naimenovanie_stroik)
-
-
-    # def insert(self):
-    #     self.login = self.lineEdit_2.text()
-    #     self.password = self.lineEdit_3.text()
-    #     self.db.insert(self.login, self.password)
-    #     self.select()
-
-
 
 
 class Window2(QWidget):
@@ -196,29 +108,32 @@ class Window2(QWidget):
         self.gl102 = QLabel('НАИМЕНОВАНИЕ МАТЕРИЛА КОД ККМ', self)
         self.gl102.setStyleSheet('border:3px solid pink')
         self.gl102.setGeometry(510, 20, 200, 30)
+        self.gl102.setWordWrap(True)
         #
         self.pole4 = QLineEdit(self)
         self.pole4.setGeometry(180, 210, 200, 70)
         self.gl103 = QLabel('  ЦЕНУ ЗА ЕД.ИЗМЕРЕНИЯ', self)
         self.gl103.setStyleSheet('border:3px solid pink')
         self.gl103.setGeometry(180,170, 200, 30)
-        #
+        ######
         self.pole5 = QLabel(self)
         self.pole5.setPixmap(QPixmap("321.jpg"))
         self.pole5.setGeometry(110, 440,400,400)
+        #######
         self.sth20 = QPushButton('ОК', self)
         self.sth20.setGeometry(180, 325, 200, 75)
         self.sth20.setStyleSheet("background-image: url(7.jpg);")
         self.pole6 = QLabel(self)
         self.pole6.setPixmap(QPixmap("img_1.png"))
         self.pole6.setGeometry(520,153, 875, 776)
-        # НОВОЕ
+        #########
         self.pole110 = QLineEdit(self)
         self.pole110.setGeometry(750, 60, 200, 70)
         self.gl110 = QLabel(' НАИМЕНОВАНИЕ МАТЕРИАЛА '
                             'ДЛЯ ВКЛЮЧЕНИЯ В СМЕТНУЮ СТОИМОСТЬ', self)
         self.gl110.setStyleSheet('border:3px solid pink')
         self.gl110.setGeometry(750, 20, 200, 30)
+        self.gl110.setWordWrap(True)
         #######
         self.pole111 = QLineEdit(self)
         self.pole111.setGeometry(990, 60, 200, 70)
@@ -237,7 +152,7 @@ class Window2(QWidget):
         self.gl113 = QLabel('ОСНОВНЫЕ ХАРАКТЕРИСТИКИ', self)
         self.gl113.setStyleSheet('border:3px solid pink')
         self.gl113.setGeometry(1470, 20, 200, 30)
-        ####
+        ######
         self.pole114 = QLineEdit(self)
         self.pole114.setGeometry(1470, 540, 200,390)
         self.gl114 = QLabel('ПРИМЕЧАНИЕ', self)
@@ -337,9 +252,7 @@ class Window3(Main):
         self.sth303.clicked.connect(self.exportExcel)
         self.edit.returnPressed.connect(self.on_find)
         self.sth304.clicked.connect(self.update)
-        # self.edit1.returnPressed.connect(self.save)
-        # self.sth304.clicked.connect(self.select)
-        #self.sth300.clicked.connect(self.close)
+
 
     def initUi3(self):
         self.setWindowTitle('ПРОСМОРТ БАЗЫ ДАННЫХ')
@@ -357,10 +270,7 @@ class Window3(Main):
         self.sth300.setStyleSheet("background-image: url(7.jpg);")
         self.pig = QTableWidget(self)
         self.pig.setGeometry(5, 5, 1680, 700)
-        # self.sth302 = QPushButton('ОТКРЫТЬ ФАЙЛ EXCEL', self)
-        # self.sth302.setGeometry(1010, 325, 180, 100)
-        # self.sth302.setStyleSheet("background-image: url(7.jpg);")
-
+        ######################
         self.sth303 = QPushButton('СОХРАНИТЬ ФАЙЛ В ЕХСЕЛ', self)
         self.sth303.setGeometry(1700, 530, 180, 70)
         self.sth303.setStyleSheet("background-image: url(7.jpg);")
@@ -393,8 +303,7 @@ class Window3(Main):
         self.gl102.setGeometry(510,710, 200, 40)
         self.pole3 = QLineEdit(self)
         self.pole3.setGeometry(510, 760, 200, 70)
-
-        # НОВОЕ
+        ###########
         self.gl110 = QLabel('НАИМЕНОВАНИЕ МАТЕРИЛА           (ПО КОДУ ККМ) ', self)
         self.gl110.setWordWrap(True)
         self.gl110.setStyleSheet('border:3px solid pink')
@@ -429,9 +338,7 @@ class Window3(Main):
         self.gl113.setGeometry(270,840,440, 40)
         self.pole113 = QLineEdit(self)
         self.pole113.setGeometry(270,890,440, 70)
-        # self.edit1 = QLineEdit(self)
-        # self.edit1.setGeometry(1010,640, 175, 70)
-        # self.edit1.setStyleSheet("background-image: url(44444-4.jpg);")
+
         ######
         self.gl114 = QLabel(' ПРИМЕЧАНИЕ ', self)
         self.gl114.setStyleSheet('border:3px solid pink')
@@ -448,21 +355,6 @@ class Window3(Main):
         self.pole2 = QLabel(self)
         self.pole2.setPixmap(QPixmap("999.jpg"))
         self.pole2.setGeometry(720,710,260,270)
-        ######
-        # self.pole2 = QLabel(self)
-        # self.pole2.setPixmap(QPixmap("2222.jpg"))
-        # self.pole2.setGeometry(1680, 710, 230, 270)
-
-
-        # self.pole401 = QLineEdit(self)
-        # self.pole401.setGeometry(1015, 600, 175, 70)
-        # self.sth304 = QPushButton('ВЫБЕРИТЕ НОМЕР ПОЗИЦИИ', self)
-        # self.sth304.setGeometry(1010, 700, 180, 100)
-        # self.sth304.setStyleSheet("background-image: url(888.jpg);")
-
-    # def save (self):
-    #     __k__ = self.edit1.text().lower()
-    #     print(k)
 
 
 
@@ -514,39 +406,6 @@ class Window3(Main):
             self.pig.setItem(0, 9, QtWidgets.QTableWidgetItem(str('ДАННЫЕ  !!!')))
             self.sth300.clicked.connect(self.close)
 
-    # def select2(self):
-    #     self.data = self.db.select2(self.id)
-    #     self.id=self.pole401.text()
-    #
-    #     if len(self.data)!= 0:
-    #         self.pig.setRowCount(len(self.data))
-    #         self.pig.setColumnCount(len(self.data[0]))
-    #         self.pig.setHorizontalHeaderLabels(["№п/п", 'РАСЦЕНКА', "КОД ККМ", "НАИМЕНОВАНИЕ МАТЕРИАЛА", "ЦЕНА ЗА ЕД.ИЗМ."])
-    #         for row, row_item in enumerate(self.data):
-    #             for column, value in enumerate(row_item):
-    #                 self.pig.setItem(row, column, QtWidgets.QTableWidgetItem(str(value)))
-    #                 self.pig.setColumnWidth(0, 110)
-    #                 self.pig.setColumnWidth(1, 110)
-    #                 self.pig.setColumnWidth(2, 200)
-    #                 self.pig.setColumnWidth(3, 250)
-    #                 self.pig.setColumnWidth(4, 200)
-    #
-    #     else:
-    #         print('дата 0')
-    #         self.pig.setColumnCount(5)
-    #         self.pig.setRowCount(100)
-    #         self.pig.setHorizontalHeaderLabels(["№п/п", 'РАСЦЕНКА', "КОД ККМ", "НАИМЕНОВАНИЕ МАТЕРИАЛА", "ЦЕНА ЗА ЕД.ИЗМ."])
-    #         self.pig.setColumnWidth(0, 110)
-    #         self.pig.setColumnWidth(1, 110)
-    #         self.pig.setColumnWidth(2, 200)
-    #         self.pig.setColumnWidth(3, 250)
-    #         self.pig.setColumnWidth(4, 200)
-    #         self.pig.setItem(0, 0, QtWidgets.QTableWidgetItem(str('ДАННЫХ')))
-    #         self.pig.setItem(0, 1, QtWidgets.QTableWidgetItem(str('НЕТ  !!!')))
-    #         self.pig.setItem(0, 2, QtWidgets.QTableWidgetItem(str('                    ')))
-    #         self.pig.setItem(0, 3, QtWidgets.QTableWidgetItem(str('ВВЕДИТЕ')))
-    #         self.pig.setItem(0, 4, QtWidgets.QTableWidgetItem(str('ДАННЫЕ  !!!')))
-    #         self.sth300.clicked.connect(self.close)
 
     def update(self):
         self.id =self.pole1.text()
@@ -566,10 +425,6 @@ class Window3(Main):
         self.db.delete(self.id)
         self.select()
 
-    # def open_file(self):
-    #     self.fname, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Выберите файл', '.',
-    #                                                               "Файлы Exсel (*.xlsx)")
-    #     print(f'fname = {self.fname}')
 
     def exportExcel(self):
         rows = self.pig.rowCount()
@@ -608,16 +463,9 @@ class Window3(Main):
                 if s in txt.lower():
                     self.pig.item(i, j).setBackground(QtGui.QColor(0,0,0,0))
                     if not first: first = self.pig.item(i, j)
-                # elif s in txt:
-                #     self.pig.item(i, j).setBackground(QtGui.QColor(0,0,0,0))
-                #     if not first: first = self.pig.item(i, j)
-                # if s in txt.upper():
-                #     self.pig.item(i, j).setBackground(QtGui.QColor(0, 0, 0, 0))
-                #     if not first: first = self.pig.item(i, j)
                 else:
                     self.pig.item(i, j).setBackground(QtGui.QColor(100,100,0,100))
         self.pig.setCurrentItem(first)
-
 
 
 
@@ -626,11 +474,8 @@ class Window4(Main):
     def __init__(self):
         super(Window4, self).__init__()
         self.initUi4()
-        # self.sth300.clicked.connect(self.delete)
-        # self.sth302.clicked.connect(self.open_file)
         self.sth303.clicked.connect(self.exportExcel)
         self.sth304.clicked.connect(self.select2)
-        # self.sth304.clicked.connect(self.close)
 
 
     def initUi4(self):
@@ -641,19 +486,8 @@ class Window4(Main):
         self.gl201 = QLabel('  ВВЕДИТЕ №П/П ИЗ БАЗЫ', self)
         self.gl201.setStyleSheet('border:3px solid pink')
         self.gl201.setGeometry(1700, 130, 180, 50)
-        # self.gl202 = QLabel(__k__,self)
-        # self.gl202.setStyleSheet('border:3px solid pink')
-        # self.gl202.setGeometry(1020, 760, 180, 50)
-        # # self.pole201 = QLineEdit(self)
-        # self.pole201.setGeometry(1050, 112, 100, 70)
-        # self.sth300 = QPushButton('УДАЛИТЬ', self)
-        # self.sth300.setGeometry(1010, 200, 180, 100)
-        # self.sth300.setStyleSheet("background-image: url(888.jpg);")
         self.pig = QTableWidget(self)
         self.pig.setGeometry(3, 3, 1680, 900)
-        # self.sth302 = QPushButton('ОТКРЫТЬ ФАЙЛ EXCEL', self)
-        # self.sth302.setGeometry(1010, 325, 180, 100)
-        # self.sth302.setStyleSheet("background-image: url(888.jpg);")
         self.sth303 = QPushButton('СОХРАНИТЬ ФАЙЛ В ЕХСЕЛ', self)
         self.sth303.setGeometry(1700, 650, 180, 85)
         self.pole5 = QLabel(self)
@@ -700,42 +534,7 @@ class Window4(Main):
         self.pole412.setGeometry(1800, 560, 70, 50)
         self.pole412.setStyleSheet("background-image: url(1000.jpg);")
 
-    # def sav(self):
-    #     super.__class__.
-    # #     k=self.edit1.text().lower()
-    #     print(k)
-    # def select(self):
-    #     self.data = self.db.select()
-    #
-    #     if len(self.data)!= 0:
-    #         self.pig.setRowCount(len(self.data))
-    #         self.pig.setColumnCount(len(self.data[0]))
-    #         self.pig.setHorizontalHeaderLabels(["№п/п", 'РАСЦЕНКА', "КОД ККМ", "НАИМЕНОВАНИЕ МАТЕРИАЛА", "ЦЕНА ЗА ЕД.ИЗМ."])
-    #         for row, row_item in enumerate(self.data):
-    #             for column, value in enumerate(row_item):
-    #                 self.pig.setItem(row, column, QtWidgets.QTableWidgetItem(str(value)))
-    #                 self.pig.setColumnWidth(0, 110)
-    #                 self.pig.setColumnWidth(1, 110)
-    #                 self.pig.setColumnWidth(2, 200)
-    #                 self.pig.setColumnWidth(3, 250)
-    #                 self.pig.setColumnWidth(4, 200)
-    #
-    #     else:
-    #         print('дата 0')
-    #         self.pig.setColumnCount(5)
-    #         self.pig.setRowCount(100)
-    #         self.pig.setHorizontalHeaderLabels(["№п/п", 'РАСЦЕНКА', "КОД ККМ", "НАИМЕНОВАНИЕ МАТЕРИАЛА", "ЦЕНА ЗА ЕД.ИЗМ."])
-    #         self.pig.setColumnWidth(0, 110)
-    #         self.pig.setColumnWidth(1, 110)
-    #         self.pig.setColumnWidth(2, 200)
-    #         self.pig.setColumnWidth(3, 250)
-    #         self.pig.setColumnWidth(4, 200)
-    #         self.pig.setItem(0, 0, QtWidgets.QTableWidgetItem(str('ДАННЫХ')))
-    #         self.pig.setItem(0, 1, QtWidgets.QTableWidgetItem(str('НЕТ  !!!')))
-    #         self.pig.setItem(0, 2, QtWidgets.QTableWidgetItem(str('                    ')))
-    #         self.pig.setItem(0, 3, QtWidgets.QTableWidgetItem(str('ВВЕДИТЕ')))
-    #         self.pig.setItem(0, 4, QtWidgets.QTableWidgetItem(str('ДАННЫЕ  !!!')))
-    #         self.sth300.clicked.connect(self.close)
+
 
     def select2(self):
         self.id = self.pole401.text()
@@ -798,36 +597,6 @@ class Window4(Main):
 
 
 
-        # if len(self.data)!= 0:
-        #     self.pig.setRowCount(len(self.data))
-        #     self.pig.setColumnCount(len(self.data[0]))
-        #     self.pig.setHorizontalHeaderLabels(["№п/п", 'РАСЦЕНКА', "КОД ККМ", "НАИМЕНОВАНИЕ МАТЕРИАЛА", "ЦЕНА ЗА ЕД.ИЗМ."])
-        #     for row, row_item in enumerate(self.data):
-        #         for column, value in enumerate(row_item):
-        #             self.pig.setItem(row, column, QtWidgets.QTableWidgetItem(str(value)))
-        #             self.pig.setColumnWidth(0, 110)
-        #             self.pig.setColumnWidth(1, 110)
-        #             self.pig.setColumnWidth(2, 200)
-        #             self.pig.setColumnWidth(3, 250)
-        #             self.pig.setColumnWidth(4, 200)
-        #
-        # else:
-        #     print('дата 0')
-        #     self.pig.setColumnCount(5)
-        #     self.pig.setRowCount(100)
-        #     self.pig.setHorizontalHeaderLabels(["№п/п", 'РАСЦЕНКА', "КОД ККМ", "НАИМЕНОВАНИЕ МАТЕРИАЛА", "ЦЕНА ЗА ЕД.ИЗМ."])
-        #     self.pig.setColumnWidth(0, 110)
-        #     self.pig.setColumnWidth(1, 110)
-        #     self.pig.setColumnWidth(2, 200)
-        #     self.pig.setColumnWidth(3, 250)
-        #     self.pig.setColumnWidth(4, 200)
-        #     self.pig.setItem(0, 0, QtWidgets.QTableWidgetItem(str('ДАННЫХ')))
-        #     self.pig.setItem(0, 1, QtWidgets.QTableWidgetItem(str('НЕТ  !!!')))
-        #     self.pig.setItem(0, 2, QtWidgets.QTableWidgetItem(str('                    ')))
-        #     self.pig.setItem(0, 3, QtWidgets.QTableWidgetItem(str('ВВЕДИТЕ')))
-        #     self.pig.setItem(0, 4, QtWidgets.QTableWidgetItem(str('ДАННЫЕ  !!!')))
-
-
 
     def delete(self):
         self.id=self.pole201.text()
@@ -864,8 +633,6 @@ class Window4(Main):
 
         df.to_excel(path, index=False)
         msg = QMessageBox.information(self, 'Ok', 'Файл сохранен!')
-
-
 
 
 # Press the green button in the gutter to run the script.
