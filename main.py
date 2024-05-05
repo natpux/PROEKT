@@ -187,7 +187,7 @@ class Window1(QWidget):
         self.button = QPushButton(self)
         self.button.setStyleSheet("background-image: url(7.jpg);")
         self.button.setText('ВВЕДИТЕ ДАННЫЕ')
-        self.button.setGeometry(400,200, 190, 100)
+        self.button.setGeometry(400,207, 190, 100)
         self.button.colorCount()
         self.button.show()
         text1 = "Cборник № 1- Земляные работы"
@@ -230,7 +230,7 @@ class Window1(QWidget):
         self.pole2.setPixmap(QPixmap("777.jpg"))
         self.pole2.setGeometry(400,300, 200, 200)
         self.pole3 = QLabel(self)
-        self.pole3.setPixmap(QPixmap("333.jpg"))
+        self.pole3.setPixmap(QPixmap("33333.jpg"))
         self.pole3.setGeometry(400,0, 200, 200)
 
     def closeEvent(self, event):
