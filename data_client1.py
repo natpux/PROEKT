@@ -34,11 +34,12 @@ class Sqlite():
     #             result_list.append(self.cursor.fetchone())
     #         return result_list
     def select2(self, list_id):
+        list_id1 = list_id.split(',')
         with self.__CONNECTION as self.sql:
             self.cursor = self.sql.cursor()
-            placeholders = ', '.join(['?'] * len(list_id))
+            placeholders = ', '.join(['?'] * len(list_id1))
             query = f"SELECT * FROM zapros1 WHERE id IN ({placeholders})"
-            self.cursor.execute(query, list_id)
+            self.cursor.execute(query, list_id1)
             return self.cursor.fetchall()
 
     def update(self,id,Normativ,Kod_KKM,Naimenovanie_materiala,Naimenovanie_smeta,Ediniza_izm,PTM,Haracteristica,Primechanie,PRICE):
