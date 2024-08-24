@@ -32,7 +32,7 @@ class Sqlite():
     #         for one_id in list_id.split(','):
     #             self.cursor.execute('''SELECT * FROM zapros1 WHERE id = ?''', (int(one_id),))
     #             result_list.append(self.cursor.fetchone())
-    #         return result_list
+    #         return result_li                                                        st
     # def select2(self, list_id):
     #     with self.__CONNECTION as self.sql:
     #         self.cursor = self.sql.cursor()
