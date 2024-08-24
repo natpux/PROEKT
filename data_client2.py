@@ -48,9 +48,13 @@ class Sqlite2():
             self.sql.execute(
                 '''INSERT INTO zaprosprognoz
                 (data,index_ob,index_smr,index_obor,index_proch) 
-                VALUES(?,?,?,?,?,?)''',
+                VALUES(?,?,?,?,?)''',
                 (param['data'], param['index_ob'], param['index_smr'], param['index_obor'],param['index_proch']))
 
     def delete(self, id):
         with self.__CONNECTION as self.sql:
             self.sql.execute('''DELETE FROM zapros1 WHERE id = ?''', (id,))
+
+
+
+
