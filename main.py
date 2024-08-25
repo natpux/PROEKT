@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import (QWidget, QLineEdit, QLabel, QPushButton, QTableWidget)
+from PyQt5.QtWidgets import (QWidget, QLineEdit, QLabel, QPushButton, QTableWidget, QGridLayout, QMainWindow)
 from PyQt5.QtGui import QPixmap
 from data_client1 import Sqlite
 from data_client2 import Sqlite2
@@ -8,6 +8,7 @@ from data_client2 import Sqlite2
 import pandas as pd
 from PyQt5.QtWidgets import QMessageBox, QFileDialog
 from PyQt5 import QtGui, QtWidgets
+from калькулятор import Example
 
 
 class Main(QtWidgets.QMainWindow):
@@ -22,6 +23,7 @@ class Main(QtWidgets.QMainWindow):
         self.init_ui()
         self.db = Sqlite()
         self.pb = Sqlite2()
+        self.nb=Example()
 
     def init_ui(self):
         # создать поле
@@ -73,6 +75,9 @@ class Main(QtWidgets.QMainWindow):
         self.w5 = Window5()
         self.w5.show()
 
+    def func6(self):
+        self.w6 = self.nb
+        self.w6.show()
 
 class Window2(QWidget):
 
@@ -376,7 +381,7 @@ class Window3(Main):
         else:
             print('дата 0')
             self.pig.setColumnCount(10)
-            self.pig.setRowCount(100)
+            self.pig.setRowCount(50)
             self.pig.setHorizontalHeaderLabels(["№п/п", 'РАСЦЕНКА', "КОД ККМ", "НАИМЕНОВАНИЕ МАТЕРИАЛА(Код ККМ)",
                                                 "НАИМЕНОВАНИЕ МАТЕРИАЛА ДЛЯ ВКЛЮЧЕНИЯ В СМЕТНУЮ СТОИМОСТЬ", "ЕД. ИЗМ.",
                                                 "ПТМ", "ОСНОВНЫЕ ХАРАКТЕРИСТИКИ", "ПРИМЕЧАНИЕ", "ЦЕНА ЗА ЕД.ИЗМ."])
@@ -640,13 +645,18 @@ class Window5(Main):
         self.edit.returnPressed.connect(self.on_find)
         self.sth304.clicked.connect(self.insert)
         self.sth304.clicked.connect(self.select)
+        self.sth5001.clicked.connect(self.func6)
+
+
 
 
     def initUi5(self):
         self.setWindowTitle('ПРОГНОЗНЫЕ ИНДЕКСЫ')
         self.setMinimumWidth(1910)
         self.setMinimumHeight(990)
-        self.setStyleSheet("background-image: url(res/pic/44444.jpg);")
+        self.setStyleSheet("background-image: url(res/pic/964.jpg);")
+        self.pig = QTableWidget(self)
+        self.pig.setGeometry(5, 5, 1300, 700)
         self.gl201 = QLabel('       УДАЛИТЬ НОМЕР', self)
         self.gl201.setStyleSheet('border:3px solid pink')
         self.gl201.setGeometry(1700, 20, 175, 70)
@@ -656,8 +666,10 @@ class Window5(Main):
         self.sth300 = QPushButton('УДАЛИТЬ', self)
         self.sth300.setGeometry(1700, 220, 180, 70)
         self.sth300.setStyleSheet("background-image: url(res/pic/7.jpg);")
-        self.pig = QTableWidget(self)
-        self.pig.setGeometry(5, 5, 1680, 700)
+        self.sth5001 = QPushButton('КАЛЬКУЛЯТОР', self)
+        self.sth5001.setGeometry(1430, 30, 180, 70)
+        self.sth5001.setStyleSheet("background-image: url(res/pic/7.jpg);")
+
         ######################
         self.sth303 = QPushButton('СОХРАНИТЬ ФАЙЛ В ЕХСЕЛ', self)
         self.sth303.setGeometry(1700, 530, 180, 70)
@@ -668,10 +680,10 @@ class Window5(Main):
         self.gl202 = QLabel('   ПОИСК ПО БАЗЕ', self)
         self.gl202.setStyleSheet('border:3px solid pink')
         self.gl202.setGeometry(1700, 330, 175, 70)
-        self.sth304 = QPushButton('ДОБАВИТЬ ПРОГНОЗНЫЙ ИНДЕКС', self)
+        self.sth304 = QPushButton('ДОБАВИТЬ ИНДЕКС', self)
         self.sth304.setGeometry(1700, 760, 180, 100)
         self.sth304.setStyleSheet("background-image: url(res/pic/7.jpg);")
-        # --------------------------------------------НИЗЗ!!!!!
+        self.sth304.setCheckable(True)
         self.gl100 = QLabel('№ПП ИЗ БАЗЫ                        (ДЛЯ ОБНОВЛЕНИЯ)', self)
         self.gl100.setStyleSheet('border:3px solid pink')
         self.gl100.setGeometry(30, 710, 200, 40)
@@ -715,14 +727,11 @@ class Window5(Main):
         ########
         self.gl112 = QLabel('СУММА ИНДЕКСОВ', self)
         self.gl112.setStyleSheet('border:3px solid pink')
-        self.gl112.setGeometry(30, 840, 200, 40)
+        self.gl112.setGeometry(720, 840, 250, 40)
         self.pole10005 = QLineEdit(self)
-        self.pole10005.setGeometry(30, 890, 200, 70)
-        #######
-        ######
-        self.pole2 = QLabel(self)
-        self.pole2.setPixmap(QPixmap("res/pic/999.jpg"))
-        self.pole2.setGeometry(720, 710, 260, 270)
+        self.pole10005.setGeometry(720, 890, 250, 70)
+
+
 
     def select(self):
         self.data = self.pb.select()
@@ -740,12 +749,12 @@ class Window5(Main):
                     self.pig.setColumnWidth(2, 150)
                     self.pig.setColumnWidth(3, 250)
                     self.pig.setColumnWidth(4, 380)
-                    self.pig.setColumnWidth(5, 70)
+                    self.pig.setColumnWidth(5, 250)
 
 
         else:
             print('дата 0')
-            self.pig.setColumnCount(10)
+            self.pig.setColumnCount(6)
             self.pig.setRowCount(100)
             self.pig.setHorizontalHeaderLabels([])
             self.pig.setColumnWidth(0, 50)
@@ -753,7 +762,7 @@ class Window5(Main):
             self.pig.setColumnWidth(2, 150)
             self.pig.setColumnWidth(3, 250)
             self.pig.setColumnWidth(4, 380)
-            self.pig.setColumnWidth(5, 70)
+            self.pig.setColumnWidth(5, 250)
             self.pig.setItem(0, 0, QtWidgets.QTableWidgetItem(str('ДАННЫХ')))
             self.pig.setItem(0, 1, QtWidgets.QTableWidgetItem(str('НЕТ  !!!')))
             self.pig.setItem(0, 2, QtWidgets.QTableWidgetItem(str('                    ')))
@@ -835,6 +844,20 @@ class Window5(Main):
                 else:
                     self.pig.item(i, j).setBackground(QtGui.QColor(100, 100, 0, 100))
         self.pig.setCurrentItem(first)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
